@@ -1,0 +1,60 @@
+{%extends "base.html"%}
+{% block content %}
+<div class = "container">
+  <table>
+    {% for book in books %}
+        {% cycle 'row' '' as row silent %}
+        {% if row %}<tr>{% endif %}
+            <td>
+              <div class="col">
+                <div class="card m-5" style="width: 26rem;">
+                  <div class="card-header">
+                    <div class="row">
+                      {% if user.is_authenticated %}
+                      <div class="col-xs-12">
+                          <form action = "{% url 'like_book' book.pk %}" method = "POST" id = "like">
+                            {% csrf_token %}
+                            <button type="submit" name="book_id" value="{{ book.id }}" style = "
+                            background-color: Transparent;
+                            background-repeat:no-repeat;
+                            border: none;
+                            cursor:pointer;
+                            overflow: hidden;
+                            outline:none;
+                            "><img src="https://styles.redditmedia.com/t5_2qnty/styles/postUpvoteIconActive_lritbcc3d6x11.png">Like</button>
+                          </form>
+                        </div>
+                        <div class="col-xs-24">
+                          <form action = "{% url 'dislike_book' book.pk %}" method = "POST" id = "dislike">
+                            {% csrf_token %}
+                            <button type="submit" name="book_id" value="{{ book.id }}" style = "
+                              background-color: Transparent;
+                              background-repeat:no-repeat;
+                              border: none;
+                              cursor:pointer;
+                              overflow: hidden;
+                              outline:none;
+                          "><img src="https://styles.redditmedia.com/t5_2qnty/styles/postDownvoteIconActive_mqbieia4d6x11.png">Dislike</button>
+                          </form>
+                        </div>
+                        <h2 class = "col-xs-12">&nbsp&nbsp&nbsp&nbsp&nbsp{{book.total_likes}}</h2>
+                      {% else %}
+                        <h2 style = "text-align:center">&nbsp&nbsp&nbsp{{book.total_likes}} Like(s)</h2>
+                      {% endif %}
+                      </div>
+                    </div>
+                    <a href = "{{book.content}}">
+                      <img class="card-img-top" src="{{book.cover}}" alt="Card image">
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{book.title}}</p>
+                    </div>
+                </div>
+              </div>
+            </td>
+        {% if not row %}</tr>{% endif %}
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock content %}

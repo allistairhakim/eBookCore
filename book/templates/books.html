@@ -1,0 +1,97 @@
+{%extends "base.html"%}
+{% block content %}
+<head>
+  <link rel="stylesheet" href="books.css">
+</head>
+
+<br><br>
+<h1>So you want to find some FREE Books?</h1>
+<br><br>
+<h2>Scroll down and click on any of the categories of books</h2>
+<div class="margin"></div>
+
+<section class="parallax">
+<div class="parallax-inner">
+<button type="button" class="child" onclick=window.location.href="{% url 'children' %}">Children</button>
+</div></section>
+
+<section class="parallax2">
+<div class="parallax-inner">
+<button class="teens" onclick=window.location.href="{% url 'teen' %}">Teens</button>
+</div></section>
+
+<br><br>
+
+<h6>All images are from pixabay.com and are royalty free</h6>
+<p>Read our policy <a href="{% url 'policy' %}">here</a></p>
+<style>
+*{
+    margin: 0;
+    padding:0;
+    border:0;
+
+}
+.margin{
+    margin: 45% 0;
+}
+.parallax{
+    background: url("https://cdn.pixabay.com/photo/2017/08/02/15/26/people-2572105_1280.jpg")
+    repeat fixed  100%;
+}
+.parallax2{
+    background: url("https://cdn.pixabay.com/photo/2017/08/07/15/16/people-2604837_1280.jpg")
+    repeat fixed 100%;
+}
+.parallax3{
+    background: url("https://cdn.pixabay.com/photo/2016/11/29/06/16/kindle-1867751_1280.jpg")
+    repeat fixed  100%;
+}
+.parallax-inner{
+    padding-top: 30%;
+    padding-bottom: 30%;
+}
+button.child{
+    margin-left: 40%;
+    width: 300px;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    opacity: 0.8;
+
+}
+button.teens{
+    margin-left: 40%;
+    width: 300px;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    opacity: 0.9;
+}
+button.adults{
+    margin-left: 40%;
+    width: 300px;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    opacity: 0.9;
+    border-radius: 5%;
+}
+button:hover{
+    opacity: 1;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+h6{
+    text-align: center;
+    font-size: 3px;
+}
+p{
+    text-align: center;
+}
+</style>
+{% endblock content %}

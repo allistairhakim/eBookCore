@@ -1,0 +1,96 @@
+{%extends "base.html"%}
+{% block content %}
+
+
+<div class="container mt-5">
+  <h1 class="opening">Welcome to the eBookCore</h1>
+  <div class="margin"></div>
+  <section class="parallax">
+  <div class="parallax-inner">
+  <h2 class="opening">This site will offer you the ability to read publicly online books.</h2>
+  </div></section>
+  <section class="parallax2">
+  <div class="parallax-inner">
+  <button type="button" class="btn btn-outline-secondary mt-4" id="readbooks" onclick=window.location.href="books">Click Here to find books</button>
+  </div>
+  </section>
+  <br><br>
+  <h6>All images are from pixabay.com and are royalty free</h6>
+</div>
+<style>
+*{
+    margin: 0;
+    padding:0;
+    border:0;
+
+}
+.margin{
+    margin: 45% 0;
+}
+.parallax{
+    background: url("https://cdn.pixabay.com/photo/2016/04/30/13/12/texture-1362879_1280.jpg")
+    repeat fixed  100%;
+}
+.parallax2{
+    background: url("https://cdn.pixabay.com/photo/2015/04/20/13/18/notebook-731212_1280.jpg")
+    repeat fixed 100%;
+}
+.parallax-inner{
+    padding-top: 30%;
+    padding-bottom: 30%;
+}
+
+
+
+
+h1.opening{
+
+    text-align: center;
+    padding: 10px;
+    margin-top: 100px;
+
+
+}
+
+h2.opening{
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-size: 500%;
+  color: #FFF;
+  letter-spacing: 3px;
+}
+body{
+    background: fixed;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+button#readbooks{
+    margin-left: 40%;
+    width: 200px;
+    height: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+
+}
+button{
+    opacity: 0.7;
+    display: inline-block;
+    border: 100px;
+
+}
+button:hover{
+    opacity: 0.9;
+
+}
+h6{
+    text-align: center;
+    font-size: 3px;
+}
+
+
+</style>
+
+{% endblock content %}
